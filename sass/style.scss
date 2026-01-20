@@ -1,0 +1,355 @@
+/* ======================================================
+   VARIABLES
+====================================================== */
+:root {
+  --primary-color: #ff6b35;
+  --secondary-color: #f7931e;
+  --dark-color: #2d1e2f;
+  --light-color: #f8f9fa;
+}
+
+/* ======================================================
+   RESET
+====================================================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  overflow-x: hidden;
+}
+
+/* ======================================================
+   NAVBAR
+====================================================== */
+.navbar-custom {
+  background: linear-gradient(135deg, var(--dark-color), #4a3352);
+  padding: 1rem 0;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  transition: all 0.4s ease;
+  box-shadow: 0 4px 20px rgba(0,0,0,.3);
+
+  &.scrolled {
+    padding: .5rem 0;
+    backdrop-filter: blur(10px);
+  }
+
+  .navbar-brand {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: var(--secondary-color) !important;
+    transition: .4s;
+
+    &:hover {
+      transform: scale(1.1) rotate(-2deg);
+      text-shadow: 0 0 15px var(--secondary-color);
+    }
+  }
+
+  .navbar-toggler {
+    border-color: var(--secondary-color);
+    transition: .3s;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+
+  .nav-link {
+    color: white !important;
+    margin: 0 15px;
+    position: relative;
+    transition: .3s;
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 50%;
+      width: 0;
+      height: 3px;
+      background: var(--secondary-color);
+      transform: translateX(-50%);
+      transition: .3s;
+    }
+
+    &:hover {
+      color: var(--secondary-color) !important;
+      transform: translateY(-3px);
+
+      &::after {
+        width: 80%;
+      }
+    }
+  }
+}
+
+/* ======================================================
+   HERO
+====================================================== */
+.hero-section {
+  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  color: white;
+  padding: 120px 0 80px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+
+  h1 {
+    font-size: 3.5rem;
+    font-weight: bold;
+    animation: fadeInDown 1s ease;
+    transition: .4s;
+
+    &:hover {
+      transform: scale(1.05);
+      text-shadow: 0 0 30px rgba(0,0,0,.4);
+    }
+  }
+
+  p {
+    font-size: 1.3rem;
+    animation: fadeInUp 1s ease;
+  }
+
+  .btn-hero {
+    background: white;
+    color: var(--primary-color);
+    padding: 15px 40px;
+    border-radius: 50px;
+    font-weight: bold;
+    animation: fadeInUp 1.2s ease;
+    transition: .4s;
+
+    &:hover {
+      background: var(--dark-color);
+      color: white;
+      transform: translateY(-6px) scale(1.05);
+      box-shadow: 0 15px 30px rgba(0,0,0,.4);
+    }
+  }
+}
+
+/* ======================================================
+   CAROUSEL
+====================================================== */
+.carousel-section {
+  padding: 60px 0;
+  background: #f8f9fa;
+
+  .carousel-inner {
+    border-radius: 15px;
+    overflow: hidden;
+  }
+
+  .carousel-item {
+    height: 500px;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: 1s;
+
+      &:hover {
+        transform: scale(1.1);
+      }
+    }
+  }
+
+  .carousel-caption {
+    background: rgba(0,0,0,.7);
+    padding: 20px;
+    border-radius: 10px;
+    animation: fadeInUp 1s ease;
+  }
+}
+
+/* ======================================================
+   CARDS
+====================================================== */
+.cards-section {
+  padding: 80px 0;
+
+  .section-title h2 {
+    transition: .4s;
+
+    &:hover {
+      letter-spacing: 3px;
+      color: var(--primary-color);
+    }
+  }
+
+  .card-custom {
+    border-radius: 15px;
+    overflow: hidden;
+    transition: .4s;
+    position: relative;
+
+    &:hover {
+      transform: translateY(-15px);
+      box-shadow: 0 20px 40px rgba(255,107,53,.4);
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(120deg, transparent, rgba(255,255,255,.4), transparent);
+      transform: translateX(-100%);
+      transition: .8s;
+    }
+
+    &:hover::after {
+      transform: translateX(100%);
+    }
+
+    .card-img-wrapper {
+      height: 220px;
+      overflow: hidden;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: .6s;
+
+        &:hover {
+          transform: scale(1.15) rotate(-1deg);
+        }
+      }
+    }
+
+    .card-link {
+      background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+      color: white !important;
+      padding: 12px 35px;
+      border-radius: 25px;
+      transition: .4s;
+
+      &:hover {
+        transform: scale(1.1) rotate(-2deg);
+        box-shadow: 0 10px 25px rgba(255,107,53,.5);
+      }
+    }
+  }
+}
+
+/* ======================================================
+   ABOUT
+====================================================== */
+.about-section img {
+  width: 100%;
+  max-height: 420px;
+  object-fit: cover;
+  border-radius: 15px;
+  transition: .5s;
+
+  &:hover {
+    transform: scale(1.05);
+    box-shadow: 0 15px 40px rgba(0,0,0,.4);
+  }
+}
+
+/* ======================================================
+   FOOTER + REDES SOCIALES
+====================================================== */
+.footer-custom {
+  background: linear-gradient(135deg, var(--dark-color), #4a3352);
+  color: white;
+
+  .social-links {
+    display: flex;
+    gap: 15px;
+
+    li {
+      list-style: none;
+
+      a {
+        width: 48px;
+        height: 48px;
+        border-radius: 50%;
+        background: rgba(255,255,255,.1);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: .6s;
+        position: relative;
+        overflow: hidden;
+
+        &::before {
+          content: '';
+          position: absolute;
+          inset: 0;
+          background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+          opacity: 0;
+          transition: .6s;
+        }
+
+        i {
+          z-index: 2;
+          transition: .6s;
+        }
+
+        &:hover {
+          transform: translateY(-10px) rotate(360deg) scale(1.2);
+          box-shadow: 0 15px 35px rgba(255,107,53,.6);
+        }
+
+        &:hover::before {
+          opacity: 1;
+        }
+
+        &:hover i {
+          color: white;
+          transform: scale(1.3);
+        }
+      }
+    }
+  }
+}
+
+/* ======================================================
+   ICONOS GLOBALES
+====================================================== */
+i {
+  transition: .4s;
+
+  &:hover {
+    transform: scale(1.3) rotate(-8deg);
+    filter: drop-shadow(0 0 10px rgba(255,107,53,.7));
+  }
+}
+
+/* ======================================================
+   ANIMACIONES
+====================================================== */
+@keyframes fadeInDown {
+  from { opacity: 0; transform: translateY(-30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ======================================================
+   RESPONSIVE
+====================================================== */
+@media (max-width: 768px) {
+  .carousel-item { height: 300px; }
+  .card-img-wrapper { height: 180px; }
+  .hero-section h1 { font-size: 2.5rem; }
+}
+
+

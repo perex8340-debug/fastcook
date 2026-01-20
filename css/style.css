@@ -1,0 +1,333 @@
+/* ======================================================
+   VARIABLES
+====================================================== */
+:root {
+  --primary-color: #ff6b35;
+  --secondary-color: #f7931e;
+  --dark-color: #2d1e2f;
+  --light-color: #f8f9fa;
+}
+
+/* ======================================================
+   RESET
+====================================================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  overflow-x: hidden;
+}
+
+/* ======================================================
+   NAVBAR
+====================================================== */
+.navbar-custom {
+  background: linear-gradient(135deg, var(--dark-color), #4a3352);
+  padding: 1rem 0;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  transition: all 0.4s ease;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+.navbar-custom.scrolled {
+  padding: 0.5rem 0;
+  -webkit-backdrop-filter: blur(10px);
+          backdrop-filter: blur(10px);
+}
+.navbar-custom .navbar-brand {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: var(--secondary-color) !important;
+  transition: 0.4s;
+}
+.navbar-custom .navbar-brand:hover {
+  transform: scale(1.1) rotate(-2deg);
+  text-shadow: 0 0 15px var(--secondary-color);
+}
+.navbar-custom .navbar-toggler {
+  border-color: var(--secondary-color);
+  transition: 0.3s;
+}
+.navbar-custom .navbar-toggler:hover {
+  transform: scale(1.1);
+}
+.navbar-custom .nav-link {
+  color: white !important;
+  margin: 0 15px;
+  position: relative;
+  transition: 0.3s;
+}
+.navbar-custom .nav-link::after {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 50%;
+  width: 0;
+  height: 3px;
+  background: var(--secondary-color);
+  transform: translateX(-50%);
+  transition: 0.3s;
+}
+.navbar-custom .nav-link:hover {
+  color: var(--secondary-color) !important;
+  transform: translateY(-3px);
+}
+.navbar-custom .nav-link:hover::after {
+  width: 80%;
+}
+
+/* ======================================================
+   HERO
+====================================================== */
+.hero-section {
+  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  color: white;
+  padding: 120px 0 80px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.hero-section h1 {
+  font-size: 3.5rem;
+  font-weight: bold;
+  animation: fadeInDown 1s ease;
+  transition: 0.4s;
+}
+.hero-section h1:hover {
+  transform: scale(1.05);
+  text-shadow: 0 0 30px rgba(0, 0, 0, 0.4);
+}
+.hero-section p {
+  font-size: 1.3rem;
+  animation: fadeInUp 1s ease;
+}
+.hero-section .btn-hero {
+  background: white;
+  color: var(--primary-color);
+  padding: 15px 40px;
+  border-radius: 50px;
+  font-weight: bold;
+  animation: fadeInUp 1.2s ease;
+  transition: 0.4s;
+}
+.hero-section .btn-hero:hover {
+  background: var(--dark-color);
+  color: white;
+  transform: translateY(-6px) scale(1.05);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+}
+
+/* ======================================================
+   CAROUSEL
+====================================================== */
+.carousel-section {
+  padding: 60px 0;
+  background: #f8f9fa;
+}
+.carousel-section .carousel-inner {
+  border-radius: 15px;
+  overflow: hidden;
+}
+.carousel-section .carousel-item {
+  height: 500px;
+}
+.carousel-section .carousel-item img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  transition: 1s;
+}
+.carousel-section .carousel-item img:hover {
+  transform: scale(1.1);
+}
+.carousel-section .carousel-caption {
+  background: rgba(0, 0, 0, 0.7);
+  padding: 20px;
+  border-radius: 10px;
+  animation: fadeInUp 1s ease;
+}
+
+/* ======================================================
+   CARDS
+====================================================== */
+.cards-section {
+  padding: 80px 0;
+}
+.cards-section .section-title h2 {
+  transition: 0.4s;
+}
+.cards-section .section-title h2:hover {
+  letter-spacing: 3px;
+  color: var(--primary-color);
+}
+.cards-section .card-custom {
+  border-radius: 15px;
+  overflow: hidden;
+  transition: 0.4s;
+  position: relative;
+}
+.cards-section .card-custom:hover {
+  transform: translateY(-15px);
+  box-shadow: 0 20px 40px rgba(255, 107, 53, 0.4);
+}
+.cards-section .card-custom::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+  transform: translateX(-100%);
+  transition: 0.8s;
+}
+.cards-section .card-custom:hover::after {
+  transform: translateX(100%);
+}
+.cards-section .card-custom .card-img-wrapper {
+  height: 220px;
+  overflow: hidden;
+}
+.cards-section .card-custom .card-img-wrapper img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  transition: 0.6s;
+}
+.cards-section .card-custom .card-img-wrapper img:hover {
+  transform: scale(1.15) rotate(-1deg);
+}
+.cards-section .card-custom .card-link {
+  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  color: white !important;
+  padding: 12px 35px;
+  border-radius: 25px;
+  transition: 0.4s;
+}
+.cards-section .card-custom .card-link:hover {
+  transform: scale(1.1) rotate(-2deg);
+  box-shadow: 0 10px 25px rgba(255, 107, 53, 0.5);
+}
+
+/* ======================================================
+   ABOUT
+====================================================== */
+.about-section img {
+  width: 100%;
+  max-height: 420px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 15px;
+  transition: 0.5s;
+}
+.about-section img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+}
+
+/* ======================================================
+   FOOTER + REDES SOCIALES
+====================================================== */
+.footer-custom {
+  background: linear-gradient(135deg, var(--dark-color), #4a3352);
+  color: white;
+}
+.footer-custom .social-links {
+  display: flex;
+  gap: 15px;
+}
+.footer-custom .social-links li {
+  list-style: none;
+}
+.footer-custom .social-links li a {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.6s;
+  position: relative;
+  overflow: hidden;
+}
+.footer-custom .social-links li a::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  opacity: 0;
+  transition: 0.6s;
+}
+.footer-custom .social-links li a i {
+  z-index: 2;
+  transition: 0.6s;
+}
+.footer-custom .social-links li a:hover {
+  transform: translateY(-10px) rotate(360deg) scale(1.2);
+  box-shadow: 0 15px 35px rgba(255, 107, 53, 0.6);
+}
+.footer-custom .social-links li a:hover::before {
+  opacity: 1;
+}
+.footer-custom .social-links li a:hover i {
+  color: white;
+  transform: scale(1.3);
+}
+
+/* ======================================================
+   ICONOS GLOBALES
+====================================================== */
+i {
+  transition: 0.4s;
+}
+i:hover {
+  transform: scale(1.3) rotate(-8deg);
+  filter: drop-shadow(0 0 10px rgba(255, 107, 53, 0.7));
+}
+
+/* ======================================================
+   ANIMACIONES
+====================================================== */
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+/* ======================================================
+   RESPONSIVE
+====================================================== */
+@media (max-width: 768px) {
+  .carousel-item {
+    height: 300px;
+  }
+  .card-img-wrapper {
+    height: 180px;
+  }
+  .hero-section h1 {
+    font-size: 2.5rem;
+  }
+}
