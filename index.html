@@ -6,22 +6,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fast Cook / Las Mejores Hamburguesas</title>
     
-    
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     
-  
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
         integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
         crossorigin="anonymous" referrerpolicy="no-referrer">
     
-  
     <link rel="stylesheet" href="css/style.css">
-
 </head>
 
 <body>
 
+    <!-- NAVBAR con animación de entrada -->
     <nav class="navbar navbar-expand-lg navbar-dark navbar-custom">
         <div class="container">
             <a class="navbar-brand" href="#home">
@@ -58,15 +55,18 @@
         </div>
     </nav>
 
- 
+    <!-- HERO SECTION con animaciones escalonadas -->
     <section class="hero-section" id="home">
         <div class="container">
             <div class="row">
                 <div class="col-12 text-center">
+                    <!-- Título con animación zoom + rotate -->
                     <h1 class="display-3 fw-bold mb-3">
-                        <i class="fas fa-fire"></i> Las Mejores Hamburguesas de la Ciudad
+                        <i class="fas fa-fire animate-pulse"></i> Las Mejores Hamburguesas de la Ciudad
                     </h1>
+                    <!-- Subtítulo con fade desde abajo -->
                     <p class="lead mb-4">Ingredientes premium, sabor incomparable</p>
+                    <!-- Botón con bounce y efecto hover -->
                     <button class="btn btn-hero btn-lg">
                         Ordena Ahora <i class="fas fa-arrow-right ms-2"></i>
                     </button>
@@ -75,7 +75,7 @@
         </div>
     </section>
 
- 
+    <!-- CAROUSEL con efectos suaves -->
     <section class="carousel-section" id="carousel">
         <div class="container">
             <div id="carouselBurger" class="carousel slide carousel-fade" data-bs-ride="carousel">
@@ -89,7 +89,6 @@
                         aria-label="Slide 3"></button>
                 </div>
 
-               
                 <div class="carousel-inner">
                     <div class="carousel-item active">
                         <img src="./img/burger1.jpg" class="d-block w-100" alt="Hamburguesa Clásica">
@@ -114,7 +113,6 @@
                     </div>
                 </div>
 
-              
                 <button class="carousel-control-prev" type="button" data-bs-target="#carouselBurger"
                     data-bs-slide="prev">
                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -129,7 +127,7 @@
         </div>
     </section>
 
-
+    <!-- CARDS con animaciones escalonadas -->
     <section class="cards-section" id="menu">
         <div class="container">
             <div class="row">
@@ -143,8 +141,9 @@
 
             <div class="row g-4 mt-3">
             
+                <!-- CARD 1 - Aparece primero -->
                 <div class="col-lg-4 col-md-6 col-sm-12">
-                    <div class="card card-custom h-100 shadow">
+                    <div class="card card-custom card-1 h-100 shadow">
                         <div class="card-img-wrapper">
                             <img src="./img/carne.jpg" class="card-img-top" alt="Carne Premium">
                         </div>
@@ -176,9 +175,9 @@
                     </div>
                 </div>
 
-             
+                <!-- CARD 2 - Aparece segundo -->
                 <div class="col-lg-4 col-md-6 col-sm-12">
-                    <div class="card card-custom h-100 shadow">
+                    <div class="card card-custom card-2 h-100 shadow">
                         <div class="card-img-wrapper">
                             <img src="./img/pann.jpg" class="card-img-top" alt="Pan Artesanal">
                         </div>
@@ -210,9 +209,9 @@
                     </div>
                 </div>
 
-              
+                <!-- CARD 3 - Aparece tercero -->
                 <div class="col-lg-4 col-md-6 col-sm-12">
-                    <div class="card card-custom h-100 shadow">
+                    <div class="card card-custom card-3 h-100 shadow">
                         <div class="card-img-wrapper">
                             <img src="./img/vegetales.jpg" class="card-img-top" alt="Vegetales Frescos">
                         </div>
@@ -247,7 +246,7 @@
         </div>
     </section>
 
-    
+    <!-- ABOUT SECTION -->
     <section class="about-section py-5 bg-light" id="about">
         <div class="container">
             <div class="row align-items-center">
@@ -258,7 +257,7 @@
                     </p>
                     <div class="row g-3">
                         <div class="col-md-6">
-                            <div class="d-flex align-items-start">
+                            <div class="d-flex align-items-start feature-item">
                                 <i class="fas fa-award text-warning fs-3 me-3"></i>
                                 <div>
                                     <h5 class="fw-bold">Calidad Premium</h5>
@@ -267,7 +266,7 @@
                             </div>
                         </div>
                         <div class="col-md-6">
-                            <div class="d-flex align-items-start">
+                            <div class="d-flex align-items-start feature-item">
                                 <i class="fas fa-clock text-warning fs-3 me-3"></i>
                                 <div>
                                     <h5 class="fw-bold">Servicio Rápido</h5>
@@ -276,7 +275,7 @@
                             </div>
                         </div>
                         <div class="col-md-6">
-                            <div class="d-flex align-items-start">
+                            <div class="d-flex align-items-start feature-item">
                                 <i class="fas fa-leaf text-success fs-3 me-3"></i>
                                 <div>
                                     <h5 class="fw-bold">100% Natural</h5>
@@ -285,7 +284,7 @@
                             </div>
                         </div>
                         <div class="col-md-6">
-                            <div class="d-flex align-items-start">
+                            <div class="d-flex align-items-start feature-item">
                                 <i class="fas fa-heart text-danger fs-3 me-3"></i>
                                 <div>
                                     <h5 class="fw-bold">Hecho con Amor</h5>
@@ -296,13 +295,13 @@
                     </div>
                 </div>
                 <div class="col-lg-6">
-                    <img src="./img/burger1.jpg" alt="Nuestra Historia" class="img-fluid rounded shadow-lg">
+                    <img src="./img/burger1.jpg" alt="Nuestra Historia" class="img-fluid rounded shadow-lg about-image">
                 </div>
             </div>
         </div>
     </section>
 
-
+    <!-- FOOTER con animaciones en íconos sociales -->
     <footer class="footer-custom" id="contact">
         <div class="container">
             <div class="row py-5">
@@ -319,7 +318,6 @@
                     </div>
                 </div>
 
-            
                 <div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
                     <div class="footer-section">
                         <h3 class="mb-3">Contacto</h3>
@@ -373,7 +371,6 @@
                 </div>
             </div>
 
-           
             <div class="row">
                 <div class="col-12">
                     <div class="copyright text-center py-3">
@@ -387,14 +384,12 @@
         </div>
     </footer>
 
-  
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
 
-
     <script>
-    
+        // Navbar scroll effect
         window.addEventListener('scroll', function() {
             const navbar = document.querySelector('.navbar-custom');
             if (window.scrollY > 50) {
@@ -404,7 +399,7 @@
             }
         });
 
-        
+        // Carousel config
         const carouselElement = document.querySelector('#carouselBurger');
         const carousel = new bootstrap.Carousel(carouselElement, {
             interval: 3000,
@@ -413,7 +408,7 @@
             pause: 'hover'
         });
 
-        
+        // Smooth scroll
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -423,7 +418,6 @@
                         behavior: 'smooth',
                         block: 'start'
                     });
-                   
                     const navbarCollapse = document.querySelector('.navbar-collapse');
                     if (navbarCollapse.classList.contains('show')) {
                         const bsCollapse = new bootstrap.Collapse(navbarCollapse);

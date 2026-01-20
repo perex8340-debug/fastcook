@@ -1,29 +1,40 @@
-/* ======================================================
-   NAVBAR
-====================================================== */
 .navbar-custom {
   background: linear-gradient(135deg, var(--dark-color), #4a3352);
   padding: 1rem 0;
   position: sticky;
   top: 0;
   z-index: 1000;
-  transition: all 0.4s ease;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   box-shadow: 0 4px 20px rgba(0,0,0,.3);
+  animation: slideInDown 0.6s ease;
 
   &.scrolled {
     padding: .5rem 0;
     backdrop-filter: blur(10px);
+    background: linear-gradient(135deg, rgba(45, 30, 47, 0.95), rgba(74, 51, 82, 0.95));
+    box-shadow: 0 8px 30px rgba(0,0,0,.5);
   }
 
   .navbar-brand {
     font-size: 1.8rem;
     font-weight: bold;
     color: var(--secondary-color) !important;
-    transition: .4s;
+    transition: all .4s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    i {
+      transition: .4s;
+    }
 
     &:hover {
       transform: scale(1.1) rotate(-2deg);
-      text-shadow: 0 0 15px var(--secondary-color);
+      text-shadow: 0 0 20px var(--secondary-color);
+
+      i {
+        animation: wobble 0.6s ease;
+      }
     }
   }
 
@@ -33,6 +44,11 @@
 
     &:hover {
       transform: scale(1.1);
+      box-shadow: 0 0 15px rgba(247, 147, 30, 0.5);
+    }
+
+    &:focus {
+      box-shadow: 0 0 0 0.2rem rgba(247, 147, 30, 0.3);
     }
   }
 
@@ -40,26 +56,73 @@
     color: white !important;
     margin: 0 15px;
     position: relative;
-    transition: .3s;
+    transition: all .3s ease;
+    padding: 8px 15px;
+    border-radius: 8px;
 
+    i {
+      transition: .3s;
+      margin-right: 5px;
+    }
+
+    // Línea animada debajo del link
     &::after {
       content: '';
       position: absolute;
-      bottom: -5px;
+      bottom: 0;
       left: 50%;
       width: 0;
       height: 3px;
       background: var(--secondary-color);
       transform: translateX(-50%);
-      transition: .3s;
+      transition: width .3s ease;
+      border-radius: 2px;
     }
 
     &:hover {
       color: var(--secondary-color) !important;
       transform: translateY(-3px);
+      background: rgba(247, 147, 30, 0.1);
 
       &::after {
         width: 80%;
+      }
+
+      i {
+        transform: scale(1.2);
+        filter: drop-shadow(0 0 8px var(--secondary-color));
+      }
+    }
+
+    &.active {
+      color: var(--secondary-color) !important;
+      background: rgba(247, 147, 30, 0.15);
+
+      &::after {
+        width: 80%;
+      }
+    }
+  }
+
+  // Animación para el navbar collapse en mobile
+  .navbar-collapse {
+    transition: all .3s ease;
+
+    &.show {
+      animation: fadeInDown 0.3s ease;
+    }
+  }
+}
+
+// Responsive
+@media (max-width: 991px) {
+  .navbar-custom {
+    .nav-link {
+      margin: 5px 0;
+      text-align: center;
+
+      &::after {
+        display: none;
       }
     }
   }
