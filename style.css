@@ -1,0 +1,517 @@
+:root {
+    --primary-color: #ff6b35;
+    --secondary-color: #f7931e;
+    --dark-color: #2d1e2f;
+    --light-color: #f8f9fa;
+}
+
+/* ===========================
+   RESET Y ESTILOS GENERALES
+   =========================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    overflow-x: hidden;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+/* ===========================
+   NAVBAR
+   =========================== */
+.navbar-custom {
+    background: linear-gradient(135deg, var(--dark-color) 0%, #4a3352 100%);
+    padding: 1rem 0;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    transition: all 0.3s ease;
+}
+
+.navbar-custom.scrolled {
+    padding: 0.5rem 0;
+    background: linear-gradient(135deg, rgba(45, 30, 47, 0.95) 0%, rgba(74, 51, 82, 0.95) 100%);
+    backdrop-filter: blur(10px);
+}
+
+.navbar-brand {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: var(--secondary-color) !important;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease;
+}
+
+.navbar-brand:hover {
+    transform: scale(1.05);
+}
+
+.navbar-toggler {
+    border-color: var(--secondary-color);
+}
+
+.navbar-toggler:focus {
+    box-shadow: 0 0 0 0.25rem rgba(247, 147, 30, 0.25);
+}
+
+.navbar-nav .nav-link {
+    color: white !important;
+    font-weight: 500;
+    margin: 0 15px;
+    position: relative;
+    transition: all 0.3s ease;
+    padding: 0.5rem 1rem;
+}
+
+.navbar-nav .nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 3px;
+    background: var(--secondary-color);
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+}
+
+.navbar-nav .nav-link:hover::after,
+.navbar-nav .nav-link.active::after {
+    width: 80%;
+}
+
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link.active {
+    color: var(--secondary-color) !important;
+}
+
+/* ===========================
+   HERO SECTION
+   =========================== */
+.hero-section {
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+    color: white;
+    padding: 120px 0 80px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120"><path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" opacity=".25" fill="%23ffffff"></path></svg>');
+    background-repeat: no-repeat;
+    background-position: bottom;
+    background-size: cover;
+    opacity: 0.1;
+}
+
+.hero-section h1 {
+    font-size: 3.5rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+    animation: fadeInDown 1s ease;
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);
+    position: relative;
+    z-index: 1;
+}
+
+.hero-section p {
+    font-size: 1.3rem;
+    margin-bottom: 30px;
+    animation: fadeInUp 1s ease;
+    position: relative;
+    z-index: 1;
+}
+
+.btn-hero {
+    background: white;
+    color: var(--primary-color);
+    padding: 15px 40px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    animation: fadeInUp 1.2s ease;
+    cursor: pointer;
+    position: relative;
+    z-index: 1;
+}
+
+.btn-hero:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+    background: var(--dark-color);
+    color: white;
+}
+
+/* ===========================
+   CAROUSEL
+   =========================== */
+.carousel-section {
+    padding: 60px 0;
+    background: #f8f9fa;
+}
+
+.carousel-inner {
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.carousel-item img {
+    height: 500px;
+    object-fit: cover;
+    width: 100%;
+}
+
+.carousel-caption {
+    background: rgba(0, 0, 0, 0.7);
+    padding: 20px 30px;
+    border-radius: 10px;
+    backdrop-filter: blur(5px);
+    bottom: 30px;
+}
+
+.carousel-caption h5 {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+}
+
+.carousel-caption p {
+    font-size: 1.1rem;
+    margin-bottom: 0;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    width: 3rem;
+    height: 3rem;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 50%;
+}
+
+.carousel-indicators button {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: var(--secondary-color);
+}
+
+/* ===========================
+   CARDS SECTION
+   =========================== */
+.cards-section {
+    padding: 80px 0;
+    background: white;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 60px;
+    position: relative;
+}
+
+.section-title h2 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: var(--dark-color);
+    margin-bottom: 15px;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 4px;
+    background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+    border-radius: 2px;
+}
+
+.card-custom {
+    border: none;
+    border-radius: 15px;
+    overflow: hidden;
+    transition: all 0.4s ease;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+}
+
+.card-custom:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 40px rgba(255, 107, 53, 0.3);
+}
+
+.card-img-wrapper {
+    overflow: hidden;
+    height: 250px;
+}
+
+.card-custom img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.card-custom:hover img {
+    transform: scale(1.1);
+}
+
+.card-custom .card-body {
+    padding: 25px;
+}
+
+.card-custom .card-title {
+    color: var(--primary-color);
+    font-weight: bold;
+    font-size: 1.4rem;
+    margin-bottom: 15px;
+}
+
+.card-custom .card-text {
+    color: #6c757d;
+    margin-bottom: 0;
+}
+
+.card-custom .list-group-item {
+    border: none;
+    padding: 12px 20px;
+    background: transparent;
+    border-left: 3px solid var(--secondary-color);
+    margin-bottom: 5px;
+    transition: all 0.3s ease;
+}
+
+.card-custom .list-group-item:hover {
+    background: #fff5f0;
+    padding-left: 25px;
+}
+
+.card-link {
+    display: inline-block;
+    padding: 12px 35px;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: white !important;
+    text-decoration: none;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+    font-weight: 500;
+}
+
+.card-link:hover {
+    transform: scale(1.05);
+    box-shadow: 0 5px 15px rgba(255, 107, 53, 0.4);
+}
+
+/* ===========================
+   ABOUT SECTION
+   =========================== */
+.about-section {
+    background: #f8f9fa;
+}
+
+.about-section img {
+    border-radius: 15px;
+    transition: transform 0.3s ease;
+}
+
+.about-section img:hover {
+    transform: scale(1.02);
+}
+
+/* ===========================
+   FOOTER
+   =========================== */
+.footer-custom {
+    background: linear-gradient(135deg, var(--dark-color) 0%, #4a3352 100%);
+    color: white;
+}
+
+.footer-section h3 {
+    color: var(--secondary-color);
+    margin-bottom: 20px;
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+.footer-section p {
+    margin-bottom: 10px;
+    line-height: 1.6;
+}
+
+.footer-section a {
+    transition: color 0.3s ease;
+}
+
+.footer-section a:hover {
+    color: var(--secondary-color) !important;
+}
+
+.social-links {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.social-links li a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+    font-size: 1.3rem;
+    text-decoration: none;
+}
+
+.social-links li a:hover {
+    background: var(--secondary-color);
+    transform: translateY(-5px) rotate(360deg);
+}
+
+.copyright {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.copyright p {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+/* ===========================
+   ANIMACIONES
+   =========================== */
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ===========================
+   RESPONSIVE
+   =========================== */
+@media (max-width: 991px) {
+    .navbar-nav .nav-link {
+        margin: 5px 0;
+        text-align: center;
+    }
+    
+    .navbar-nav .nav-link::after {
+        display: none;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-section {
+        padding: 80px 0 60px;
+    }
+
+    .hero-section h1 {
+        font-size: 2.5rem;
+    }
+
+    .hero-section p {
+        font-size: 1.1rem;
+    }
+
+    .carousel-item img {
+        height: 300px;
+    }
+
+    .carousel-caption {
+        padding: 15px 20px;
+        bottom: 15px;
+    }
+
+    .carousel-caption h5 {
+        font-size: 1.3rem;
+    }
+
+    .carousel-caption p {
+        font-size: 0.9rem;
+    }
+
+    .section-title h2 {
+        font-size: 2rem;
+    }
+
+    .card-img-wrapper {
+        height: 200px;
+    }
+
+    .about-section .row {
+        flex-direction: column-reverse;
+    }
+
+    .footer-section {
+        text-align: center;
+    }
+
+    .social-links {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 576px) {
+    .hero-section {
+        padding: 60px 0 40px;
+    }
+
+    .hero-section h1 {
+        font-size: 2rem;
+    }
+
+    .btn-hero {
+        padding: 12px 30px;
+        font-size: 1rem;
+    }
+
+    .carousel-item img {
+        height: 250px;
+    }
+
+    .section-title h2 {
+        font-size: 1.8rem;
+    }
+
+    .card-custom .card-title {
+        font-size: 1.2rem;
+    }
+}
