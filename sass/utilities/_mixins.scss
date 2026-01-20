@@ -1,0 +1,42 @@
+// utilities/_mixins.scss
+
+// Botones
+@mixin button($bg, $color, $padding) {
+  background-color: $bg;
+  color: $color;
+  padding: $padding;
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: 0.3s;
+
+  &:hover {
+    opacity: 0.8;
+  }
+}
+
+// Cards
+@mixin card($radius, $bg, $padding) {
+  border-radius: $radius;
+  background-color: $bg;
+  padding: $padding;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  transition: 0.3s;
+
+  &:hover {
+    transform: translateY(-5px);
+  }
+}
+
+// Contenedores flexibles
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+// Texto destacado
+@mixin text-highlight($color) {
+  color: $color;
+  font-weight: bold;
+}
