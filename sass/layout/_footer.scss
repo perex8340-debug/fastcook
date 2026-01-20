@@ -1,0 +1,57 @@
+/* ======================================================
+   FOOTER + REDES SOCIALES
+====================================================== */
+.footer-custom {
+  background: linear-gradient(135deg, var(--dark-color), #4a3352);
+  color: white;
+
+  .social-links {
+    display: flex;
+    gap: 15px;
+
+    li {
+      list-style: none;
+
+      a {
+        width: 48px;
+        height: 48px;
+        border-radius: 50%;
+        background: rgba(255,255,255,.1);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: .6s;
+        position: relative;
+        overflow: hidden;
+
+        &::before {
+          content: '';
+          position: absolute;
+          inset: 0;
+          background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+          opacity: 0;
+          transition: .6s;
+        }
+
+        i {
+          z-index: 2;
+          transition: .6s;
+        }
+
+        &:hover {
+          transform: translateY(-10px) rotate(360deg) scale(1.2);
+          box-shadow: 0 15px 35px rgba(255,107,53,.6);
+        }
+
+        &:hover::before {
+          opacity: 1;
+        }
+
+        &:hover i {
+          color: white;
+          transform: scale(1.3);
+        }
+      }
+    }
+  }
+}

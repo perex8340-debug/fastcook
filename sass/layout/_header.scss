@@ -1,0 +1,49 @@
+/* ======================================================
+   HEADER
+====================================================== */
+
+
+@use '../utilities/variables';
+
+.hero-section {
+  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  color: white;
+  padding: 120px 0 80px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+
+  h1 {
+    font-size: 3.5rem;
+    font-weight: bold;
+    animation: fadeInDown 1s ease;
+    transition: .4s;
+
+    &:hover {
+      transform: scale(1.05);
+      text-shadow: 0 0 30px rgba(0,0,0,.4);
+    }
+  }
+
+  p {
+    font-size: 1.3rem;
+    animation: fadeInUp 1s ease;
+  }
+
+  .btn-hero {
+    background: white;
+    color: var(--primary-color);
+    padding: 15px 40px;
+    border-radius: 50px;
+    font-weight: bold;
+    animation: fadeInUp 1.2s ease;
+    transition: .4s;
+
+    &:hover {
+      background: var(--dark-color);
+      color: white;
+      transform: translateY(-6px) scale(1.05);
+      box-shadow: 0 15px 30px rgba(0,0,0,.4);
+    }
+  }
+}

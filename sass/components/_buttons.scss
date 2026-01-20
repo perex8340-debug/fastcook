@@ -1,0 +1,16 @@
+.btn-hero {
+    background: white;
+    color: var(--primary-color);
+    padding: 15px 40px;
+    border-radius: 50px;
+    font-weight: bold;
+    animation: fadeInUp 1.2s ease;
+    transition: .4s;
+
+    &:hover {
+      background: var(--dark-color);
+      color: white;
+      transform: translateY(-6px) scale(1.05);
+      box-shadow: 0 15px 30px rgba(0,0,0,.4);
+    }
+  }

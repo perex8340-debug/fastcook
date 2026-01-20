@@ -1,0 +1,66 @@
+/* ======================================================
+   NAVBAR
+====================================================== */
+.navbar-custom {
+  background: linear-gradient(135deg, var(--dark-color), #4a3352);
+  padding: 1rem 0;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  transition: all 0.4s ease;
+  box-shadow: 0 4px 20px rgba(0,0,0,.3);
+
+  &.scrolled {
+    padding: .5rem 0;
+    backdrop-filter: blur(10px);
+  }
+
+  .navbar-brand {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: var(--secondary-color) !important;
+    transition: .4s;
+
+    &:hover {
+      transform: scale(1.1) rotate(-2deg);
+      text-shadow: 0 0 15px var(--secondary-color);
+    }
+  }
+
+  .navbar-toggler {
+    border-color: var(--secondary-color);
+    transition: .3s;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+
+  .nav-link {
+    color: white !important;
+    margin: 0 15px;
+    position: relative;
+    transition: .3s;
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 50%;
+      width: 0;
+      height: 3px;
+      background: var(--secondary-color);
+      transform: translateX(-50%);
+      transition: .3s;
+    }
+
+    &:hover {
+      color: var(--secondary-color) !important;
+      transform: translateY(-3px);
+
+      &::after {
+        width: 80%;
+      }
+    }
+  }
+}

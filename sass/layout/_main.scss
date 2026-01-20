@@ -1,0 +1,117 @@
+/* ======================================================
+   MAIN
+====================================================== */
+/* Carousel */
+.carousel-section {
+  padding: 60px 0;
+  background: #f8f9fa;
+
+  .carousel-inner {
+    border-radius: 15px;
+    overflow: hidden;
+  }
+
+  .carousel-item {
+    height: 500px;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: 1s;
+
+      &:hover {
+        transform: scale(1.1);
+      }
+    }
+  }
+
+  .carousel-caption {
+    background: rgba(0,0,0,.7);
+    padding: 20px;
+    border-radius: 10px;
+    animation: fadeInUp 1s ease;
+  }
+}
+
+/* Cards */
+.cards-section {
+  padding: 80px 0;
+
+  .section-title h2 {
+    transition: .4s;
+
+    &:hover {
+      letter-spacing: 3px;
+      color: var(--primary-color);
+    }
+  }
+
+  .card-custom {
+    border-radius: 15px;
+    overflow: hidden;
+    transition: .4s;
+    position: relative;
+
+    &:hover {
+      transform: translateY(-15px);
+      box-shadow: 0 20px 40px rgba(255,107,53,.4);
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(120deg, transparent, rgba(255,255,255,.4), transparent);
+      transform: translateX(-100%);
+      transition: .8s;
+    }
+
+    &:hover::after {
+      transform: translateX(100%);
+    }
+
+    .card-img-wrapper {
+      height: 220px;
+      overflow: hidden;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: .6s;
+
+        &:hover {
+          transform: scale(1.15) rotate(-1deg);
+        }
+      }
+    }
+
+    .card-link {
+      background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+      color: white !important;
+      padding: 12px 35px;
+      border-radius: 25px;
+      transition: .4s;
+
+      &:hover {
+        transform: scale(1.1) rotate(-2deg);
+        box-shadow: 0 10px 25px rgba(255,107,53,.5);
+      }
+    }
+  }
+}
+
+/* About */
+.about-section img {
+  width: 100%;
+  max-height: 420px;
+  object-fit: cover;
+  border-radius: 15px;
+  transition: .5s;
+
+  &:hover {
+    transform: scale(1.05);
+    box-shadow: 0 15px 40px rgba(0,0,0,.4);
+  }
+}
