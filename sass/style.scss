@@ -30,4 +30,35 @@
 
 
 
+// 1️⃣ UTILITIES
+@use 'utilities/variables';
+@use 'utilities/mixins';
+@use 'utilities/animations';
+@use 'utilities/responsive';
+
+// 2️⃣ BASE
+@use 'base/reset';
+
+// 3️⃣ COMPONENTS
+@use 'components/buttons';
+@use 'components/cards';
+@use 'components/icons';
+@use 'components/navbar';
+@use 'components/carousel';
+
+// 4️⃣ LAYOUT
+@use 'layout/header';
+@use 'layout/footer';
+@use 'layout/hero';
+@use 'layout/main';
+@use 'layout/about';
+
+// 5️⃣ PAGES (estilos específicos de cada HTML)
+@use 'pages/productos';
+@use 'pages/productos';
+@use 'pages/sobrenosotros';
+@use 'pages/destacados';
+
+
+
 
