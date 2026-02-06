@@ -1,0 +1,16 @@
+# --- Archivos del Sistema (Basura) ---
+Thumbs.db
+Desktop.ini
+.DS_Store
+
+# --- Configuración de VS Code (Personal) ---
+.vscode/
+
+# --- Archivos de Respaldo (Que no deben subir) ---
+*.bak
+*.tmp
+css/style-copia.css
+
+# --- Caché y Logs ---
+*.log
+.sass-cache/
