@@ -1,129 +1,19 @@
-/* ======================================================
-   UTILITIES
-====================================================== */
 @use 'utilities/variables';
 @use 'utilities/animations';
+@use 'utilities/mixins';
 @use 'utilities/responsive';
 
-/* ======================================================
-   BASE
-====================================================== */
+// 2. BASE
 @use 'base/reset';
 
-/* ======================================================
-   COMPONENTS
-====================================================== */
+// 3. COMPONENTES
 @use 'components/buttons';
 @use 'components/cards';
 @use 'components/icons';
 @use 'components/navbar';
 
-/* ======================================================
-   LAYOUT
-====================================================== */
-@use 'layout/header';
-@use 'layout/main';
+// 4. LAYOUT
 @use 'layout/hero';
 @use 'layout/carousel';
 @use 'layout/about';
 @use 'layout/footer';
-
-
-
-// 1️⃣ UTILITIES
-@use 'utilities/variables';
-@use 'utilities/mixins';
-@use 'utilities/animations';
-@use 'utilities/responsive';
-
-// 2️⃣ BASE
-@use 'base/reset';
-
-// 3️⃣ COMPONENTS
-@use 'components/buttons';
-@use 'components/cards';
-@use 'components/icons';
-@use 'components/navbar';
-@use 'components/carousel';
-
-// 4️⃣ LAYOUT
-@use 'layout/header';
-@use 'layout/footer';
-@use 'layout/hero';
-@use 'layout/main';
-@use 'layout/about';
-
-// 5️⃣ PAGES (estilos específicos de cada HTML)
-@use 'pages/productos';
-@use 'pages/productos';
-@use 'pages/sobrenosotros';
-@use 'pages/destacados';
-
-
-
-
-
-
-
-// --- MIXINS ---
-@mixin box-card($color-fondo: #fff) {
-  width: 100%; // Adaptable al grid de Bootstrap
-  background-color: $color-fondo;
-  padding: 20px;
-  border-radius: 10px;
-}
-
-@mixin flex-custom($direction: column) {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: $direction;
-}
-
-@mixin estilo-texto($alineacion: center, $fuente: "Lucida Sans", $color: inherit) {
-  text-align: $alineacion;
-  font-family: $fuente;
-  color: $color;
-}
-
-// --- APLICACIÓN ---
-
-// Tipografía Global
-.container {
-  @include estilo-texto(center, "Lucida Sans");
-}
-
-.collapse navbar-collapse{
-  @include estilo-texto(left, "Segoe UI", #444);
-}
-
-// Clases específicas de tu HTML
-.nosotros-card {
-  @include box-card(#ffffff);
-  border: 1px solid #ddd;
-  
-  h2 {
-    @include estilo-texto(left, "Lucida Sans", #e44d26);
-  }
-}
-
-.mision-vision-card {
-  @include box-card(#f8f9fa);
-  @include flex-custom(column);
-  
-  h3 {
-    margin-top: 10px;
-    color: #ffc107;
-  }
-}
-
-.valor-card {
-  @include box-card(#fff);
-  @include flex-custom(column);
-  transition: 0.3s;
-
-  &:hover {
-    background-color: #e44d26;
-    h5, p, i { color: white !important; }
-  }
-}

@@ -1,42 +1,51 @@
-// utilities/_mixins.scss
+/* ======================================================
+   MIXINS - EL MOTOR DE FASTCOOK
+====================================================== */
 
-// Botones
-@mixin button($bg, $color, $padding) {
-  background-color: $bg;
-  color: $color;
-  padding: $padding;
-  border: none;
-  border-radius: 0.5rem;
-  cursor: pointer;
-  transition: 0.3s;
-
-  &:hover {
-    opacity: 0.8;
-  }
-}
-
-// Cards
-@mixin card($radius, $bg, $padding) {
-  border-radius: $radius;
-  background-color: $bg;
-  padding: $padding;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-  transition: 0.3s;
-
-  &:hover {
-    transform: translateY(-5px);
-  }
-}
-
-// Contenedores flexibles
+// 1. Flexbox Maestro (Para centrar cualquier cosa)
 @mixin flex-center {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-// Texto destacado
-@mixin text-highlight($color) {
-  color: $color;
+// 2. Flexbox Personalizado (Con valores por defecto)
+@mixin flex-custom($direction: row, $justify: flex-start, $align: stretch) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justify;
+  align-items: $align;
+}
+
+// 3. El Mixin de la Tarjeta PerfectA (Integrado con variables)
+@mixin box-card($bg-color: $dark-card) { // Usamos tu variable oscura
+  background-color: $bg-color;
+  border-radius: 15px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  overflow: hidden;
+  transition: $transition-smooth; // Usamos tu transición global
+
+  &:hover {
+    transform: translateY(-10px);
+    box-shadow: $shadow-gold; // Brillo dorado automático
+    border-color: $primary-gold;
+  }
+}
+
+// 4. Efecto de Cristal (Para Navbars y Captions)
+@mixin glass-effect($opacity: 0.8) {
+  background: rgba(0, 0, 0, $opacity);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 193, 7, 0.2);
+}
+
+// 5. Estilo de Título (Dostoevsky Style)
+@mixin estilo-titulo($align: center, $color: $primary-gold) {
+  text-align: $align;
   font-weight: bold;
+  color: $color;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-shadow: 0 0 15px rgba($color, 0.3);
 }

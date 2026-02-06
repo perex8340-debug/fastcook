@@ -4,411 +4,260 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fast Cook / Las Mejores Hamburguesas</title>
-
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
-        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
-        crossorigin="anonymous" referrerpolicy="no-referrer">
-
-    <!-- Custom CSS -->
+    <title>FastCook | Excelencia Artesanal</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="css/style.css">
+
+    <style>
+        /* ESTILOS INTERNOS PARA GARANTIZAR TAMAÑOS */
+        
+        :root {
+            --primary-gold: #ffc107;
+        }
+
+        body {
+            background-color: #f8f9fa;
+        }
+
+        /* 1. CARRUSEL */
+        .carousel-item {
+            height: 600px;
+            background-color: #000;
+        }
+        
+        .carousel-item img {
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+            object-position: center;
+            opacity: 0.9;
+        }
+
+        @media (max-width: 768px) {
+            .carousel-item {
+                height: 400px;
+            }
+        }
+
+        /* 2. TARJETAS (Cards) */
+        .card-img-wrapper {
+            height: 250px; /* Altura fija para todas */
+            width: 100%;
+            overflow: hidden;
+            position: relative;
+            border-bottom: 4px solid var(--primary-gold);
+        }
+        
+        .card-img-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .card:hover .card-img-wrapper img {
+            transform: scale(1.15);
+        }
+
+        .card {
+            border: none;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease;
+            background: #fff;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+        }
+
+        /* 3. HERO SECTION */
+        .hero-section {
+            min-height: 85vh;
+            /* RUTA LOCAL CORREGIDA */
+            background: linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.6)), 
+                        url('./img/clasic.jpg') no-repeat center center/cover;
+        }
+
+        /* Botones */
+        .btn-gradient {
+            background: linear-gradient(45deg, #ffc107, #ffdb4d);
+            border: none;
+            color: #000;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .badge {
+            font-size: 0.75rem;
+            font-weight: 700;
+        }
+    </style>
 </head>
 
 <body>
 
-    <!-- NAVBAR con animación de entrada -->
-
-
-
-    <nav class="nav">
-    <ul>
-        <li><a href="./pages/contactos.html">Contactanos</a></li>
-        <li><a href="./pages/sobrenosotros.html">Quiénes Somos</a></li>
-        <li><a href="./pages/destacados.html">Destacados</a></li>
-        <li><a href="./pages/productos.html">Productos</a></li>
-    </ul>
-</nav>
-    <nav class="navbar navbar-expand-lg navbar-dark navbar-custom">
-        <div class="container">
-            <a class="navbar-brand" href="#home">
-                <i class="fas fa-hamburger"></i> Fast Cook
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#home">
-                            <i class="fas fa-home"></i> Inicio
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#menu">
-                            <i class="fas fa-utensils"></i> Menú
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#about">
-                            <i class="fas fa-info-circle"></i> Nosotros
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#contact">
-                            <i class="fas fa-envelope"></i> Contacto
-                        </a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-
-    <!-- HERO SECTION -->
-    <section class="hero-section" id="home">
-        <div class="container">
-            <div class="row">
-                <div class="col-12 text-center">
-                    <h1 class="display-3 fw-bold mb-3">
-                        <i class="fas fa-fire animate-pulse"></i> Las Mejores Hamburguesas de la Ciudad
-                    </h1>
-                    <p class="lead mb-4">Ingredientes premium, sabor incomparable</p>
-                    <button class="btn btn-hero btn-lg">
-                        Ordena Ahora <i class="fas fa-arrow-right ms-2"></i>
-                    </button>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top shadow-lg py-3">
+            <div class="container">
+                <a class="navbar-brand fw-bold fs-3" href="#home">
+                    <i class="fas fa-hamburger text-warning"></i> FastCook
+                </a>
+                <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto text-uppercase fw-bold small gap-3 text-center">
+                        <li class="nav-item"><a class="nav-link active text-warning" href="#home">Inicio</a></li>
+                        <li class="nav-item"><a class="nav-link" href="./pages/productos.html">Productos</a></li>
+                        <li class="nav-item"><a class="nav-link" href="./pages/destacados.html">Destacados</a></li>
+                        <li class="nav-item"><a class="nav-link" href="./pages/sobrenosotros.html">Nosotros</a></li>
+                        <li class="nav-item"><a class="nav-link" href="./pages/contactos.html">Contacto</a></li>
+                    </ul>
                 </div>
             </div>
-        </div>
-    </section>
+        </nav>
+    </header>
 
-    <!-- CAROUSEL -->
-    <section class="carousel-section" id="carousel">
-        <div class="container">
-            <div id="carouselBurger" class="carousel slide carousel-fade" data-bs-ride="carousel">
+    <main>
+        <section class="hero-section d-flex align-items-center justify-content-center text-white text-center position-relative" id="home">
+            <div class="container position-relative z-2">
+                <div class="row justify-content-center">
+                    <div class="col-12 col-lg-9">
+                        <div class="d-inline-block border border-warning rounded-pill px-4 py-2 mb-4">
+                            <small class="text-warning fw-bold">100% ARTESANAL &middot; BOGOTÁ</small>
+                        </div>
+                        <h1 class="display-2 fw-bold mb-3 text-white">
+                            Sabor Gótico, <br><span class="text-warning">Placer Real</span>
+                        </h1>
+                        <p class="lead mb-5 fs-4 text-white-50">
+                            Ingredientes premium seleccionados diariamente para los paladares más exigentes.
+                        </p>
+                        <div class="d-flex flex-column flex-sm-row justify-content-center gap-3">
+                            <a href="./pages/productos.html" class="btn btn-gradient btn-lg rounded-pill px-5 py-3 text-decoration-none">ORDENA AHORA</a>
+                            <a href="#calidad" class="btn btn-outline-light btn-lg rounded-pill px-5 py-3 fw-bold text-decoration-none">CONOCE LA CALIDAD</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
+        <section class="bg-black">
+            <div id="heroCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel">
                 <div class="carousel-indicators">
-                    <button type="button" data-bs-target="#carouselBurger" data-bs-slide-to="0" class="active"
-                        aria-current="true" aria-label="Slide 1"></button>
-                    <button type="button" data-bs-target="#carouselBurger" data-bs-slide-to="1"
-                        aria-label="Slide 2"></button>
-                    <button type="button" data-bs-target="#carouselBurger" data-bs-slide-to="2"
-                        aria-label="Slide 3"></button>
+                    <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="0" class="active"></button>
+                    <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="1"></button>
+                    <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="2"></button>
                 </div>
-
+                
                 <div class="carousel-inner">
-                    <div class="carousel-item active">
-                        <img src="./img/burger1.jpg" class="d-block w-100" alt="Hamburguesa Clásica">
-                        <div class="carousel-caption d-none d-md-block">
-                            <h5 class="fw-bold">Hamburguesa Clásica</h5>
-                            <p>El sabor tradicional que nunca falla</p>
+                    <div class="carousel-item active" data-bs-interval="4000">
+                        <img src="./img/hamburguesa.jpg" class="d-block w-100" alt="Hamburguesa Clásica">
+                        <div class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 rounded-3 p-4 mb-5">
+                            <h2 class="fw-bold text-warning">La Clásica</h2>
+                            <p class="fs-5">El equilibrio perfecto entre tradición y sabor.</p>
                         </div>
                     </div>
-                    <div class="carousel-item">
-                        <img src="./img/burger2.jpg" class="d-block w-100" alt="Hamburguesa Premium">
-                        <div class="carousel-caption d-none d-md-block">
-                            <h5 class="fw-bold">Burger Premium</h5>
-                            <p>Ingredientes selectos para paladares exigentes</p>
+                    <div class="carousel-item" data-bs-interval="4000">
+                        <img src="./img/burger2.jpg" class="d-block w-100" alt="Doble Carne">
+                        <div class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 rounded-3 p-4 mb-5">
+                            <h2 class="fw-bold text-warning">Doble Bestia</h2>
+                            <p class="fs-5">Doble carne, doble queso, máxima satisfacción.</p>
                         </div>
                     </div>
-                    <div class="carousel-item">
-                        <img src="./img/burger3.jpg" class="d-block w-100" alt="Hamburguesa BBQ">
-                        <div class="carousel-caption d-none d-md-block">
-                            <h5 class="fw-bold">Burger BBQ</h5>
-                            <p>Sabor ahumado irresistible</p>
+                    <div class="carousel-item" data-bs-interval="4000">
+                        <img src="./img/burger3.jpg" class="d-block w-100" alt="BBQ Especial">
+                        <div class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 rounded-3 p-4 mb-5">
+                            <h2 class="fw-bold text-warning">BBQ Ahumada</h2>
+                            <p class="fs-5">Nuestra salsa secreta con cebollas caramelizadas.</p>
                         </div>
                     </div>
                 </div>
-
-                <button class="carousel-control-prev" type="button" data-bs-target="#carouselBurger"
-                    data-bs-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Anterior</span>
+                
+                <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon"></span>
                 </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#carouselBurger"
-                    data-bs-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Siguiente</span>
+                <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
+                    <span class="carousel-control-next-icon"></span>
                 </button>
-
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- CARDS SECTION -->
-    <section class="cards-section" id="menu">
+        <section class="py-5" id="calidad">
+            <div class="container py-4">
+                <div class="text-center mb-5">
+                    <h2 class="display-5 fw-bold text-dark">El Secreto del Sabor</h2>
+                    <p class="text-muted fs-5">Calidad que puedes ver y saborear</p>
+                    <hr class="mx-auto border-warning opacity-100" style="width: 80px; height: 4px;">
+                </div>
+
+                <div class="row g-4">
+                    <div class="col-12 col-md-6 col-lg-4">
+                        <article class="card h-100">
+                            <div class="card-img-wrapper">
+                                <img src="./img/carne.jpg" alt="Carne Madurada">
+                                <span class="badge bg-danger position-absolute top-0 start-0 m-3 shadow px-3 py-2">MADURADA</span>
+                            </div>
+                            <div class="card-body p-4 text-center">
+                                <h4 class="fw-bold mb-3">Carne Premium</h4>
+                                <p class="text-muted">100% Res seleccionada. Jugosidad y sabor intenso garantizados con 21 días de maduración.</p>
+                            </div>
+                        </article>
+                    </div>
+
+                    <div class="col-12 col-md-6 col-lg-4">
+                        <article class="card h-100">
+                            <div class="card-img-wrapper">
+                                <img src="./img/pann.jpg" alt="Pan Artesanal">
+                            </div>
+                            <div class="card-body p-4 text-center">
+                                <h4 class="fw-bold mb-3">Pan Artesanal</h4>
+                                <p class="text-muted">Brioche suave y dorado, horneado cada mañana con nuestra receta secreta de la casa.</p>
+                            </div>
+                        </article>
+                    </div>
+
+                    <div class="col-12 col-md-6 col-lg-4">
+                        <article class="card h-100">
+                            <div class="card-img-wrapper">
+                                <img src="./img/vegetales.jpg" alt="Vegetales Frescos">
+                                <span class="badge bg-success position-absolute top-0 end-0 m-3 shadow px-3 py-2">ORGÁNICO</span>
+                            </div>
+                            <div class="card-body p-4 text-center">
+                                <h4 class="fw-bold mb-3">Huerta Fresca</h4>
+                                <p class="text-muted">Frescura total cosechada por agricultores locales. Del campo directo a tu hamburguesa.</p>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-dark text-white py-5 border-top border-warning border-3">
         <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <div class="section-title">
-                        <h2 class="display-4 fw-bold">Nuestros Ingredientes Estrella</h2>
-                        <p class="text-muted fs-5">Calidad premium en cada bocado</p>
+            <div class="row align-items-center gy-4">
+                <div class="col-md-4 text-center text-md-start">
+                    <h3 class="fw-bold m-0"><i class="fas fa-hamburger text-warning me-2"></i> FastCook</h3>
+                    <small class="text-white-50">Sabor real desde 2026.</small>
+                </div>
+                <div class="col-md-4 text-center">
+                    <div class="d-flex justify-content-center gap-4">
+                        <a href="#" class="text-white fs-4"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-white fs-4"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="text-white fs-4"><i class="fab fa-tiktok"></i></a>
                     </div>
+                </div>
+                <div class="col-md-4 text-center text-md-end">
+                    <p class="m-0 small text-white-50">Diseñado con <i class="fas fa-heart text-danger"></i> por DEPG.</p>
                 </div>
             </div>
-
-            <div class="row g-4 mt-3">
-
-                <!-- CARD 1 -->
-                <div class="col-lg-4 col-md-6 col-sm-12">
-                    <div class="card card-custom card-1 h-100 shadow">
-                        <div class="card-img-wrapper">
-                            <img src="./img/carne.jpg" class="card-img-top" alt="Carne Premium">
-                        </div>
-                        <div class="card-body">
-                            <h5 class="card-title"><i class="fas fa-drumstick-bite"></i> Carne Premium</h5>
-                            <p class="card-text">Cortes selectos para el sabor perfecto de tu hamburguesa.</p>
-                        </div>
-                        <ul class="list-group list-group-flush">
-                            <li class="list-group-item"><i class="fas fa-check-circle text-success me-2"></i>Carne
-                                madurada 21 días</li>
-                            <li class="list-group-item"><i class="fas fa-check-circle text-success me-2"></i>100% res de
-                                calidad</li>
-                            <li class="list-group-item"><i class="fas fa-check-circle text-success me-2"></i>Corte punta de
-                                anca</li>
-                            <li class="list-group-item"><i class="fas fa-check-circle text-success me-2"></i>Sin
-                                conservantes</li>
-                        </ul>
-                        <div class="card-body text-center">
-                            <a href="#" class="card-link">Más información <i class="fas fa-arrow-right ms-1"></i></a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- CARD 2 -->
-                <div class="col-lg-4 col-md-6 col-sm-12">
-                    <div class="card card-custom card-2 h-100 shadow">
-                        <div class="card-img-wrapper">
-                            <img src="./img/pann.jpg" class="card-img-top" alt="Pan Artesanal">
-                        </div>
-                        <div class="card-body">
-                            <h5 class="card-title"><i class="fas fa-bread-slice"></i> Pan Artesanal</h5>
-                            <p class="card-text">Recién horneado cada día para máxima frescura.</p>
-                        </div>
-                        <ul class="list-group list-group-flush">
-                            <li class="list-group-item"><i class="fas fa-check-circle text-success me-2"></i>Hecho diariamente
-                            </li>
-                            <li class="list-group-item"><i class="fas fa-check-circle text-success me-2"></i>Con semillas de
-                                sésamo</li>
-                            <li class="list-group-item"><i class="fas fa-check-circle text-success me-2"></i>Textura
-                                esponjosa</li>
-                            <li class="list-group-item"><i class="fas fa-check-circle text-success me-2"></i>Receta
-                                tradicional</li>
-                        </ul>
-                        <div class="card-body text-center">
-                            <a href="#" class="card-link">Más información <i class="fas fa-arrow-right ms-1"></i></a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- CARD 3 -->
-                <div class="col-lg-4 col-md-6 col-sm-12">
-                    <div class="card card-custom card-3 h-100 shadow">
-                        <div class="card-img-wrapper">
-                            <img src="./img/vegetales.jpg" class="card-img-top" alt="Vegetales Frescos">
-                        </div>
-                        <div class="card-body">
-                            <h5 class="card-title"><i class="fas fa-carrot"></i> Vegetales Frescos</h5>
-                            <p class="card-text">Ingredientes orgánicos directamente de la huerta.</p>
-                        </div>
-                        <ul class="list-group list-group-flush">
-                            <li class="list-group-item"><i class="fas fa-check-circle text-success me-2"></i>Lechuga
-                                hidropónica</li>
-                            <li class="list-group-item"><i class="fas fa-check-circle text-success me-2"></i>Tomates
-                                maduros</li>
-                            <li class="list-group-item"><i class="fas fa-check-circle text-success me-2"></i>Cebolla
-                                caramelizada</li>
-                            <li class="list-group-item"><i class="fas fa-check-circle text-success me-2"></i>100%
-                                orgánicos</li>
-                        </ul>
-                        <div class="card-body text-center">
-                            <a href="#" class="card-link">Más información <i class="fas fa-arrow-right ms-1"></i></a>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <!-- ABOUT SECTION -->
-    <section class="about-section py-5 bg-light" id="about">
-        <div class="container">
-            <div class="row align-items-center">
-
-                <div class="col-lg-6 mb-4 mb-lg-0">
-                    <h2 class="display-5 fw-bold mb-3">¿Por qué elegirnos?</h2>
-                    <p class="lead text-muted mb-4">
-                        En Fast Cook nos apasiona crear las mejores hamburguesas de la ciudad usando solo ingredientes de
-                        primera calidad.
-                    </p>
-
-                    <div class="row g-3">
-                        <div class="col-md-6">
-                            <div class="d-flex align-items-start feature-item">
-                                <i class="fas fa-award text-warning fs-3 me-3"></i>
-                                <div>
-                                    <h5 class="fw-bold">Calidad Premium</h5>
-                                    <p class="text-muted">Ingredientes seleccionados</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="d-flex align-items-start feature-item">
-                                <i class="fas fa-clock text-warning fs-3 me-3"></i>
-                                <div>
-                                    <h5 class="fw-bold">Servicio Rápido</h5>
-                                    <p class="text-muted">Entrega en 30 minutos</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="d-flex align-items-start feature-item">
-                                <i class="fas fa-leaf text-success fs-3 me-3"></i>
-                                <div>
-                                    <h5 class="fw-bold">100% Natural</h5>
-                                    <p class="text-muted">Sin conservantes</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="d-flex align-items-start feature-item">
-                                <i class="fas fa-heart text-danger fs-3 me-3"></i>
-                                <div>
-                                    <h5 class="fw-bold">Hecho con Amor</h5>
-                                    <p class="text-muted">Recetas artesanales</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-6">
-                    <img src="./img/burger1.jpg" alt="Nuestra Historia"
-                        class="img-fluid rounded shadow-lg about-image">
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <!-- FOOTER -->
-    <footer class="footer-custom" id="contact">
-        <div class="container">
-
-            <div class="row py-5">
-
-                <div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
-                    <div class="footer-section">
-                        <h3 class="mb-3"><i class="fas fa-hamburger"></i> Fast Cook</h3>
-                        <p class="text-light">
-                            Las mejores hamburguesas gourmet con ingredientes premium. Sabor auténtico desde 2024.
-                        </p>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
-                    <div class="footer-section">
-                        <h3 class="mb-3">Contacto</h3>
-                        <ul class="list-unstyled">
-                            <li class="mb-2"><i class="fas fa-phone me-2"></i>
-                                <a href="tel:+571234567890" class="text-light text-decoration-none">+57 123 456
-                                    7890</a>
-                            </li>
-                            <li class="mb-2"><i class="fas fa-envelope me-2"></i>
-                                <a href="mailto:info@burgerhouse.com" class="text-light text-decoration-none">info@fastcook.com</a>
-                            </li>
-                            <li class="mb-2"><i class="fas fa-map-marker-alt me-2"></i>
-                                <span class="text-light">Bogotá, Colombia</span>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-12">
-                    <div class="footer-section">
-                        <h3 class="mb-3">Síguenos</h3>
-                        <ul class="social-links">
-                            <li><a href="#" aria-label="Facebook" title="Facebook"><i
-                                        class="fab fa-facebook-f"></i></a></li>
-                            <li><a href="#" aria-label="Instagram" title="Instagram"><i
-                                        class="fab fa-instagram"></i></a></li>
-                            <li><a href="#" aria-label="Twitter" title="Twitter"><i
-                                        class="fab fa-twitter"></i></a></li>
-                            <li><a href="#" aria-label="YouTube" title="YouTube"><i
-                                        class="fab fa-youtube"></i></a></li>
-                        </ul>
-                    </div>
-                </div>
-
-            </div>
-
-            <div class="row">
-                <div class="col-12">
-                    <div class="copyright text-center py-3">
-                        <p class="mb-0">
-                            &copy; 2025 Fast Cook. Todos los derechos reservados. |
-                            Diseñado con <i class="fas fa-heart text-danger"></i> por DEPG
-                        </p>
-                    </div>
-                </div>
-            </div>
-
         </div>
     </footer>
 
-    <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-        crossorigin="anonymous"></script>
-
-    <!-- Scripts personalizados -->
-    <script>
-        // Navbar scroll effect
-        window.addEventListener('scroll', function () {
-            const navbar = document.querySelector('.navbar-custom');
-            if (window.scrollY > 50) {
-                navbar.classList.add('scrolled');
-            } else {
-                navbar.classList.remove('scrolled');
-            }
-        });
-
-        // Carousel config
-        const carouselElement = document.querySelector('#carouselBurger');
-        const carousel = new bootstrap.Carousel(carouselElement, {
-            interval: 3000,
-            wrap: true,
-            keyboard: true,
-            pause: 'hover'
-        });
-
-        // Smooth scroll
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                    const navbarCollapse = document.querySelector('.navbar-collapse');
-                    if (navbarCollapse.classList.contains('show')) {
-                        const bsCollapse = new bootstrap.Collapse(navbarCollapse);
-                        bsCollapse.hide();
-                    }
-                }
-            });
-        });
-    </script>
-
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
-
 </html>
-

@@ -1,14 +1,47 @@
 /* ======================================================
-   RESPONSIVE
+   RESPONSIVE - AJUSTES PARA DISPOSITIVOS MÓVILES
 ====================================================== */
+
+// 1. Tablets y Celulares Grandes (max-width: 768px)
 @media (max-width: 768px) {
+  .hero-section {
+    padding: 100px 0 60px; // Un poco más compacto
+    
+    h1 {
+      font-size: 2.8rem; // Mantener jerarquía visual
+      span { font-size: 3rem; } // El toque "Camus" resaltado
+    }
+    
+    p { font-size: 1.1rem; }
+  }
+
   .carousel-item {
-    height: 300px;
+    height: 400px; // Subimos de 300 a 400 para que la hamburguesa no se corte
   }
-  .card-img-wrapper {
-    height: 180px;
+
+  .card-img-wrapper, .card-img-fixed {
+    height: 200px; // Ajuste para que las tarjetas se vean equilibradas
   }
+
+  .section-title h2 {
+    font-size: 2rem;
+  }
+}
+
+// 2. Celulares Pequeños (max-width: 576px)
+@media (max-width: 576px) {
   .hero-section h1 {
-    font-size: 2.5rem;
+    font-size: 2.2rem;
+    span { font-size: 2.5rem; }
+  }
+
+  .btn-hero {
+    padding: 15px 30px; // Botón más fácil de tocar con el dedo
+    width: 90%; // Botón casi ancho completo para usabilidad
+  }
+
+  .footer-custom {
+    text-align: center;
+    .social-links { justify-content: center; }
   }
 }

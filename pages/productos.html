@@ -1,226 +1,374 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>FastCook - Productos</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  <link rel="stylesheet" href="../css/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menú Completo | FastCook</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+
+    <style>
+        /* =========================================
+           ESTILOS PREMIUM DARK & GOLD (UNIFICADOS)
+           ========================================= */
+        
+        :root {
+            --primary-gold: #ffc107;
+            --dark-bg: #121212;
+            --card-dark: #1e1e1e;
+        }
+
+        body {
+            background-color: var(--dark-bg);
+            color: #fff;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        /* --- HERO SECTION --- */
+        .hero-section {
+            background: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.85)), 
+                        url('../img/burger.jpg') no-repeat center center/cover;
+            border-bottom: 2px solid var(--primary-gold);
+        }
+
+        /* --- TARJETAS UNIFORMES --- */
+        .card-custom {
+            background-color: var(--card-dark);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            overflow: hidden;
+            height: 100%;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+        }
+        
+        /* Animación de la Tarjeta */
+        .card-custom:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(255, 193, 7, 0.15);
+            border-color: var(--primary-gold);
+        }
+
+        /* Imagen con Zoom */
+        .card-img-fixed {
+            height: 250px; /* Altura obligatoria */
+            width: 100%;
+            overflow: hidden;
+            position: relative;
+            border-bottom: 3px solid var(--primary-gold);
+        }
+        
+        .card-img-fixed img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .card-custom:hover .card-img-fixed img {
+            transform: scale(1.15); /* Zoom suave */
+        }
+
+        /* --- BOTONES UNIFICADOS (El círculo dorado) --- */
+        .btn-add {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background-color: #fff;
+            color: #000;
+            border: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+        }
+
+        /* Animación del Botón */
+        .btn-add:hover {
+            background-color: var(--primary-gold);
+            transform: rotate(90deg) scale(1.1); /* Gira y crece */
+            color: #000;
+        }
+
+        /* --- NAVEGACIÓN (Pills) --- */
+        .nav-pills .nav-link {
+            color: #fff;
+            background-color: rgba(255,255,255,0.1);
+            border-radius: 50px;
+            padding: 10px 25px;
+            margin: 0 5px;
+            transition: all 0.3s;
+        }
+        .nav-pills .nav-link:hover {
+            color: var(--primary-gold);
+            background-color: rgba(255, 193, 7, 0.1);
+        }
+        .nav-pills .nav-link.active {
+            background-color: var(--primary-gold);
+            color: #000;
+            font-weight: bold;
+            box-shadow: 0 0 15px rgba(255, 193, 7, 0.4);
+        }
+
+        /* Precios */
+        .price-text {
+            color: var(--primary-gold);
+            font-weight: bold;
+            font-size: 1.4rem;
+        }
+
+        .navbar-custom { background-color: rgba(0, 0, 0, 0.95) !important; }
+        
+        /* Títulos de sección */
+        .section-header {
+            border-left: 5px solid var(--primary-gold);
+            padding-left: 15px;
+            margin-bottom: 30px;
+            color: #fff;
+        }
+    </style>
 </head>
+
 <body>
 
-<!-- NAVBAR -->
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark navbar-custom sticky-top shadow">
+            <div class="container">
+                <a class="navbar-brand fw-bold" href="../index.html">
+                    <i class="fas fa-hamburger text-warning"></i> FastCook
+                </a>
+                <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto text-center">
+                        <li class="nav-item"><a class="nav-link text-white px-3" href="../index.html">Inicio</a></li>
+                        <li class="nav-item"><a class="nav-link active text-warning px-3" href="./productos.html">Productos</a></li>
+                        <li class="nav-item"><a class="nav-link text-white px-3" href="./destacados.html">Destacados</a></li>
+                        <li class="nav-item"><a class="nav-link text-white px-3" href="./sobrenosotros.html">Nosotros</a></li>
+                        <li class="nav-item"><a class="nav-link text-white px-3" href="./contactos.html">Contacto</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
 
-<nav class="nav">
-    <ul>
-        <li><a href="../index.html">Inicio</a></li>
-        <li><a href="./sobrenosotros.html">Quiénes Somos</a></li>
-        <li><a href="./destacados.html">Destacados</a></li>
-        <li><a href="./contactos.html">Contactanos</a></li>
-    </ul>
-</nav>
-<nav class="navbar navbar-expand-lg navbar-dark navbar-custom">
-  <div class="container">
-    <a class="navbar-brand" href="../index.html">
-      <i class="fas fa-hamburger"></i> FastCook
-    </a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav ms-auto">
-        <li class="nav-item"><a class="nav-link" href="../index.html"><i class="fas fa-home"></i> Inicio</a></li>
-        <li class="nav-item"><a class="nav-link active" href="./productos.html"><i class="fas fa-utensils"></i> Productos</a></li>
-        <li class="nav-item"><a class="nav-link" href="./destacados.html"><i class="fas fa-star"></i> Destacados</a></li>
-        <li class="nav-item"><a class="nav-link" href="./sobrenosotros.html"><i class="fas fa-info-circle"></i> Nosotros</a></li>
-        <li class="nav-item"><a class="nav-link" href="./contactos.html"><i class="fas fa-envelope"></i> Contacto</a></li>
-      </ul>
-    </div>
-  </div>
-</nav>
+    <main>
+        <section class="hero-section text-white text-center py-5">
+            <div class="container py-4">
+                <h1 class="display-4 fw-bold mb-3">Nuestro <span class="text-warning">Menú</span></h1>
+                <p class="lead text-light opacity-75">Selecciona tu categoría favorita y disfruta el sabor real.</p>
+                
+                <div class="d-flex justify-content-center flex-wrap mt-4 nav-pills">
+                    <a href="#hamburguesas" class="nav-link active shadow">Hamburguesas</a>
+                    <a href="#hotdogs" class="nav-link shadow">Hot Dogs</a>
+                    <a href="#bebidas" class="nav-link shadow">Bebidas</a>
+                </div>
+            </div>
+        </section>
 
-<!-- HERO -->
-<section class="text-center py-5 productos-hero bg-light">
-  <div class="container">
-    <h1 class="display-3 fw-bold mb-3"><i class="fas fa-shopping-bag"></i> Nuestros Productos</h1>
-    <p class="lead">Descubre nuestra deliciosa variedad</p>
-  </div>
-</section>
+        <section id="hamburguesas" class="py-5">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="fw-bold mb-0">Hamburguesas Artesanales</h2>
+                </div>
 
-<!-- CATEGORÍAS -->
-<div class="container py-4 text-center">
-  <h3 class="mb-4"><i class="fas fa-filter"></i> Categorías</h3>
-  <div class="d-flex flex-wrap justify-content-center gap-2">
-    <button class="btn btn-outline-primary btn-categoria active" data-category="all">Todos</button>
-    <button class="btn btn-outline-primary btn-categoria" data-category="hamburguesas">Hamburguesas</button>
-    <button class="btn btn-outline-primary btn-categoria" data-category="hotdogs">Hot Dogs</button>
-    <button class="btn btn-outline-primary btn-categoria" data-category="snacks">Snacks</button>
-    <button class="btn btn-outline-primary btn-categoria" data-category="bebidas">Bebidas</button>
-  </div>
-</div>
+                <div class="row g-4">
+                    <div class="col-12 col-md-6 col-lg-4">
+                        <article class="card-custom">
+                            <div class="card-img-fixed">
+                                <img src="../img/burger1.jpg" alt="Hamburguesa Clásica">
+                                <span class="badge bg-warning text-dark position-absolute top-0 end-0 m-3 fw-bold shadow">TOP</span>
+                            </div>
+                            <div class="card-body text-center p-4">
+                                <h4 class="fw-bold text-white">La Clásica</h4>
+                                <p class="text-white-50 small">Carne 150g, queso cheddar fundido, lechuga, tomate y salsa de la casa.</p>
+                                <div class="d-flex justify-content-between align-items-center mt-3 pt-3 border-top border-secondary">
+                                    <span class="price-text">$18.000</span>
+                                    <button class="btn-add"><i class="fas fa-plus"></i></button>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
 
-<!-- GRID DE PRODUCTOS -->
-<div class="container py-4">
-  <div class="row g-4 productos-grid">
+                    <div class="col-12 col-md-6 col-lg-4">
+                        <article class="card-custom">
+                            <div class="card-img-fixed">
+                                <img src="../img/burger2.jpg" alt="Doble Carne">
+                            </div>
+                            <div class="card-body text-center p-4">
+                                <h4 class="fw-bold text-white">Doble Bestia</h4>
+                                <p class="text-white-50 small">Doble carne 150g, doble queso, tocineta crujiente y cebolla caramelizada.</p>
+                                <div class="d-flex justify-content-between align-items-center mt-3 pt-3 border-top border-secondary">
+                                    <span class="price-text">$25.000</span>
+                                    <button class="btn-add"><i class="fas fa-plus"></i></button>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
 
-    <!-- Hamburguesas -->
-    <div class="col-12 col-sm-6 col-md-4 producto-card" data-category="hamburguesas">
-      <div class="card h-100 shadow-sm">
-        <div class="position-relative">
-          <img src="../img/burger.jpg" class="card-img-top" alt="Hamburguesa clásica">
-          <span class="badge bg-warning text-dark position-absolute top-0 start-0 m-2">Nuevo</span>
-        </div>
-        <div class="card-body">
-          <h5 class="card-title"><i class="fas fa-hamburger"></i> Hamburguesa Clásica</h5>
-          <p class="card-text">Queso, lechuga, tomate y pepinillos frescos</p>
-        </div>
-        <div class="card-footer d-flex justify-content-between align-items-center">
-          <span class="fw-bold">$12.000</span>
-          <button class="btn btn-primary btn-add-cart"><i class="fas fa-cart-plus"></i> Agregar</button>
-        </div>
-      </div>
-    </div>
+                    <div class="col-12 col-md-6 col-lg-4">
+                        <article class="card-custom">
+                            <div class="card-img-fixed">
+                                <img src="../img/burger3.jpg" alt="BBQ Master">
+                                <span class="badge bg-danger position-absolute top-0 end-0 m-3 shadow">PICANTE</span>
+                            </div>
+                            <div class="card-body text-center p-4">
+                                <h4 class="fw-bold text-white">BBQ Master</h4>
+                                <p class="text-white-50 small">Carne a la parrilla, aros de cebolla, jalapeños y nuestra salsa BBQ ahumada.</p>
+                                <div class="d-flex justify-content-between align-items-center mt-3 pt-3 border-top border-secondary">
+                                    <span class="price-text">$22.000</span>
+                                    <button class="btn-add"><i class="fas fa-plus"></i></button>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-    <div class="col-12 col-sm-6 col-md-4 producto-card" data-category="hamburguesas">
-      <div class="card h-100 shadow-sm">
-        <div class="position-relative">
-          <img src="../img/hamburguesa.jpg" class="card-img-top" alt="Hamburguesa especial">
-          <span class="badge bg-danger position-absolute top-0 start-0 m-2">Popular</span>
-        </div>
-        <div class="card-body">
-          <h5 class="card-title"><i class="fas fa-fire"></i> Hamburguesa Especial</h5>
-          <p class="card-text">Doble carne, queso cheddar y salsa secreta</p>
-        </div>
-        <div class="card-footer d-flex justify-content-between align-items-center">
-          <span class="fw-bold">$15.000</span>
-          <button class="btn btn-primary btn-add-cart"><i class="fas fa-cart-plus"></i> Agregar</button>
-        </div>
-      </div>
-    </div>
+        <section id="hotdogs" class="py-5 bg-black bg-opacity-25">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="fw-bold mb-0">Hot Dogs & Snacks</h2>
+                </div>
 
-    <!-- Hot Dogs -->
-    <div class="col-12 col-sm-6 col-md-4 producto-card" data-category="hotdogs">
-      <div class="card h-100 shadow-sm">
-        <img src="../img/hotdog.jpg" class="card-img-top" alt="Perro caliente">
-        <div class="card-body">
-          <h5 class="card-title"><i class="fas fa-hotdog"></i> Perro Caliente Clásico</h5>
-          <p class="card-text">Salchicha jugosa con pan recién horneado</p>
-        </div>
-        <div class="card-footer d-flex justify-content-between align-items-center">
-          <span class="fw-bold">$8.000</span>
-          <button class="btn btn-primary btn-add-cart"><i class="fas fa-cart-plus"></i> Agregar</button>
-        </div>
-      </div>
-    </div>
+                <div class="row g-4">
+                    <div class="col-12 col-md-6 col-lg-4">
+                        <article class="card-custom">
+                            <div class="card-img-fixed">
+                                <img src="../img/hotdog.jpg" alt="Hot Dog Clásico">
+                            </div>
+                            <div class="card-body text-center p-4">
+                                <h4 class="fw-bold text-white">Perro Americano</h4>
+                                <p class="text-white-50 small">Salchicha premium, ensalada de repollo, papas ripio y salsas.</p>
+                                <div class="d-flex justify-content-between align-items-center mt-3 pt-3 border-top border-secondary">
+                                    <span class="price-text">$15.000</span>
+                                    <button class="btn-add"><i class="fas fa-plus"></i></button>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
 
-    <div class="col-12 col-sm-6 col-md-4 producto-card" data-category="hotdogs">
-      <div class="card h-100 shadow-sm">
-        <img src="../img/hotdgo.jpg" class="card-img-top" alt="Perro especial">
-        <div class="card-body">
-          <h5 class="card-title"><i class="fas fa-hotdog"></i> Perro FastCook</h5>
-          <p class="card-text">Cebolla, queso y bacon crujiente</p>
-        </div>
-        <div class="card-footer d-flex justify-content-between align-items-center">
-          <span class="fw-bold">$10.000</span>
-          <button class="btn btn-primary btn-add-cart"><i class="fas fa-cart-plus"></i> Agregar</button>
-        </div>
-      </div>
-    </div>
+                    <div class="col-12 col-md-6 col-lg-4">
+                        <article class="card-custom">
+                            <div class="card-img-fixed">
+                                <img src="../img/hotdgo.jpg" alt="Hot Dog Especial">
+                            </div>
+                            <div class="card-body text-center p-4">
+                                <h4 class="fw-bold text-white">Perro FastCook</h4>
+                                <p class="text-white-50 small">Salchicha suiza, tocineta, queso gratinado y piña calada.</p>
+                                <div class="d-flex justify-content-between align-items-center mt-3 pt-3 border-top border-secondary">
+                                    <span class="price-text">$18.000</span>
+                                    <button class="btn-add"><i class="fas fa-plus"></i></button>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
 
-    <!-- Snacks -->
-    <div class="col-12 col-sm-6 col-md-4 producto-card" data-category="snacks">
-      <div class="card h-100 shadow-sm">
-        <img src="../img/frenchfries.jpg" class="card-img-top" alt="Papas fritas">
-        <div class="card-body">
-          <h5 class="card-title"><i class="fas fa-fries"></i> Papas Fritas</h5>
-          <p class="card-text">Crujientes y doradas, acompañamiento ideal</p>
-        </div>
-        <div class="card-footer d-flex justify-content-between align-items-center">
-          <span class="fw-bold">$5.000</span>
-          <button class="btn btn-primary btn-add-cart"><i class="fas fa-cart-plus"></i> Agregar</button>
-        </div>
-      </div>
-    </div>
+                    <div class="col-12 col-md-6 col-lg-4">
+                        <article class="card-custom">
+                            <div class="card-img-fixed">
+                                <img src="../img/frenchfries.jpg" alt="Papas Fritas">
+                            </div>
+                            <div class="card-body text-center p-4">
+                                <h4 class="fw-bold text-white">Papas de la Casa</h4>
+                                <p class="text-white-50 small">Porción grande de papas francesas con paprika y queso cheddar.</p>
+                                <div class="d-flex justify-content-between align-items-center mt-3 pt-3 border-top border-secondary">
+                                    <span class="price-text">$8.000</span>
+                                    <button class="btn-add"><i class="fas fa-plus"></i></button>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-    <div class="col-12 col-sm-6 col-md-4 producto-card" data-category="snacks">
-      <div class="card h-100 shadow-sm">
-        <img src="../img/aros.jpg" class="card-img-top" alt="Aros de cebolla">
-        <div class="card-body">
-          <h5 class="card-title"><i class="fas fa-ring"></i> Aros de Cebolla</h5>
-          <p class="card-text">Crujientes, dorados y con salsa especial</p>
+        <section id="bebidas" class="py-5">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="fw-bold mb-0">Bebidas</h2>
+                </div>
+
+                <div class="row g-4">
+                    <div class="col-12 col-md-6 col-lg-4">
+                        <article class="card-custom">
+                            <div class="card-img-fixed">
+                                <img src="../img/soda.jpg" alt="Gaseosa">
+                            </div>
+                            <div class="card-body text-center p-4">
+                                <h4 class="fw-bold text-white">Gaseosa 400ml</h4>
+                                <p class="text-white-50 small">Coca-Cola, Manzana, Colombiana. Bien fría.</p>
+                                <div class="d-flex justify-content-between align-items-center mt-3 pt-3 border-top border-secondary">
+                                    <span class="price-text">$4.000</span>
+                                    <button class="btn-add"><i class="fas fa-plus"></i></button>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+
+                    <div class="col-12 col-md-6 col-lg-4">
+                        <article class="card-custom">
+                            <div class="card-img-fixed">
+                                <img src="../img/juice.jpg" alt="Jugo Natural">
+                            </div>
+                            <div class="card-body text-center p-4">
+                                <h4 class="fw-bold text-white">Limonada Natural</h4>
+                                <p class="text-white-50 small">Recién exprimida, con opción de hierbabuena o coco.</p>
+                                <div class="d-flex justify-content-between align-items-center mt-3 pt-3 border-top border-secondary">
+                                    <span class="price-text">$6.000</span>
+                                    <button class="btn-add"><i class="fas fa-plus"></i></button>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+
+                    <div class="col-12 col-md-6 col-lg-4">
+                        <article class="card-custom">
+                            <div class="card-img-fixed">
+                                <img src="../img/beer.jpg" alt="Cerveza">
+                            </div>
+                            <div class="card-body text-center p-4">
+                                <h4 class="fw-bold text-white">Cerveza Nacional</h4>
+                                <p class="text-white-50 small">Club Colombia, Águila o Poker. Solo para mayores de edad.</p>
+                                <div class="d-flex justify-content-between align-items-center mt-3 pt-3 border-top border-secondary">
+                                    <span class="price-text">$5.000</span>
+                                    <button class="btn-add"><i class="fas fa-plus"></i></button>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="py-5" style="background-color: #000; border-top: 1px solid #333;">
+        <div class="container">
+            <div class="row gy-4 align-items-center">
+                <div class="col-12 col-md-4 text-center text-md-start">
+                    <h3 class="fw-bold text-white mb-0"><i class="fas fa-hamburger text-warning me-2"></i> FastCook</h3>
+                </div>
+                <div class="col-12 col-md-4 text-center">
+                    <div class="d-flex justify-content-center gap-4">
+                        <a href="#" class="text-white h4"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-white h4"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="text-white h4"><i class="fab fa-tiktok"></i></a>
+                    </div>
+                </div>
+                <div class="col-12 col-md-4 text-center text-md-end">
+                    <p class="mb-0 small text-secondary">© 2026 FastCook. <br> Hecho con pasión.</p>
+                </div>
+            </div>
         </div>
-        <div class="card-footer d-flex justify-content-between align-items-center">
-          <span class="fw-bold">$6.000</span>
-          <button class="btn btn-primary btn-add-cart"><i class="fas fa-cart-plus"></i> Agregar</button>
-        </div>
-      </div>
-    </div>
+    </footer>
 
-    <!-- Bebidas -->
-    <div class="col-12 col-sm-6 col-md-4 producto-card" data-category="bebidas">
-      <div class="card h-100 shadow-sm">
-        <img src="../img/soda.jpg" class="card-img-top" alt="Refresco">
-        <div class="card-body">
-          <h5 class="card-title"><i class="fas fa-glass-whiskey"></i> Refresco</h5>
-          <p class="card-text">Bebida fría, ideal para acompañar</p>
-        </div>
-        <div class="card-footer d-flex justify-content-between align-items-center">
-          <span class="fw-bold">$4.000</span>
-          <button class="btn btn-primary btn-add-cart"><i class="fas fa-cart-plus"></i> Agregar</button>
-        </div>
-      </div>
-    </div>
-
-    <div class="col-12 col-sm-6 col-md-4 producto-card" data-category="bebidas">
-      <div class="card h-100 shadow-sm">
-        <img src="../img/juice.jpg" class="card-img-top" alt="Jugo natural">
-        <div class="card-body">
-          <h5 class="card-title"><i class="fas fa-cocktail"></i> Jugo Natural</h5>
-          <p class="card-text">Preparado con frutas frescas del día</p>
-        </div>
-        <div class="card-footer d-flex justify-content-between align-items-center">
-          <span class="fw-bold">$5.000</span>
-          <button class="btn btn-primary btn-add-cart"><i class="fas fa-cart-plus"></i> Agregar</button>
-        </div>
-      </div>
-    </div>
-
-  </div>
-</div>
-
-<!-- FOOTER -->
-<footer class="footer-custom py-4 bg-dark text-white text-center">
-  <p class="mb-0">© 2025 FastCook. Todos los derechos reservados.</p>
-</footer>
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-<script>
-  const buttons = document.querySelectorAll('.btn-categoria');
-  const productos = document.querySelectorAll('.producto-card');
-
-  buttons.forEach(button => {
-    button.addEventListener('click', () => {
-      const category = button.dataset.category;
-      buttons.forEach(btn => btn.classList.remove('active'));
-      button.classList.add('active');
-      productos.forEach(p => {
-        p.style.display = (category === 'all' || p.dataset.category === category) ? 'block' : 'none';
-        if (p.style.display === 'block') p.style.animation = 'fadeInUp 0.6s ease';
-      });
-    });
-  });
-
-  document.querySelectorAll('.btn-add-cart').forEach(btn => {
-    btn.addEventListener('click', () => {
-      btn.innerHTML = '<i class="fas fa-check"></i> Agregado';
-      btn.classList.add('btn-success');
-      setTimeout(() => {
-        btn.innerHTML = '<i class="fas fa-cart-plus"></i> Agregar';
-        btn.classList.remove('btn-success');
-      }, 2000);
-    });
-  });
-</script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
+
 </html>

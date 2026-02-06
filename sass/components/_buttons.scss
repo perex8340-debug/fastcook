@@ -1,122 +1,42 @@
-.btn-hero {
-  background: white;
-  color: var(--primary-color);
-  padding: 15px 40px;
-  border-radius: 50px;
+// Botón Principal Dorado (El que usamos en 'Ordena Ya')
+.btn-gold {
+  background-color: #ffc107; // Variable $primary-gold
+  color: #000;
   font-weight: bold;
+  border-radius: 50px;
+  padding: 12px 35px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
   border: none;
-  position: relative;
-  overflow: hidden;
-  cursor: pointer;
-  transition: all .4s cubic-bezier(0.68, -0.55, 0.27, 1.55);
-  
-  // Brillo que cruza el botón
-  &::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
-    transition: .6s;
-  }
-
-  // Círculo de expansión en hover
-  &::after {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 0;
-    height: 0;
-    background: var(--dark-color);
-    border-radius: 50%;
-    transform: translate(-50%, -50%);
-    transition: width .6s, height .6s;
-    z-index: 0;
-  }
-
-  i {
-    position: relative;
-    z-index: 1;
-    transition: .3s;
-  }
-
-  span {
-    position: relative;
-    z-index: 1;
-  }
+  transition: all 0.3s ease;
+  text-decoration: none; // Importante para enlaces <a>
+  display: inline-block; // Para que respete padding
 
   &:hover {
-    color: white;
-    transform: translateY(-8px) scale(1.08);
-    box-shadow: 0 20px 40px rgba(0,0,0,.5);
-    
-    &::before {
-      left: 100%;
-    }
-
-    &::after {
-      width: 400px;
-      height: 400px;
-    }
-
-    i {
-      transform: translateX(5px);
-      filter: drop-shadow(0 0 10px white);
-    }
-  }
-
-  &:active {
-    transform: translateY(-4px) scale(1.02);
-    box-shadow: 0 10px 20px rgba(0,0,0,.4);
-  }
-
-  &:focus {
-    outline: none;
-    box-shadow: 0 0 0 4px rgba(255,107,53,0.3);
-  }
-}
-
-// Variante secundaria
-.btn-secondary-custom {
-  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-  color: white;
-  padding: 12px 30px;
-  border-radius: 25px;
-  border: none;
-  font-weight: 600;
-  transition: all .4s ease;
-  position: relative;
-  overflow: hidden;
-
-  &::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
-    opacity: 0;
-    transition: .4s;
-  }
-
-  span {
-    position: relative;
-    z-index: 1;
-  }
-
-  &:hover {
+    background-color: #fff;
     transform: scale(1.05);
-    box-shadow: 0 10px 30px rgba(255,107,53,.5);
-
-    &::before {
-      opacity: 1;
-    }
-  }
-
-  &:active {
-    transform: scale(0.98);
+    color: #000;
+    box-shadow: 0 0 15px rgba(255, 193, 7, 0.4);
   }
 }
 
+// Botón Circular de "+" (Usado en Productos)
+.btn-add {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  background-color: #fff;
+  color: #000;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
 
+  &:hover {
+    background-color: #ffc107;
+    transform: rotate(90deg) scale(1.1);
+  }
+}
